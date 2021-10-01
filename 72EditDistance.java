@@ -3,8 +3,11 @@ class Solution {
         int[][] dp =new int[word2.length()+1][word1.length()+1];
         for(int i=0; i<word2.length()+1; i++){
             for(int j=0; j<word1.length()+1; j++){
-                if(i==0 || j==0){
-                    dp[i][j]=j;
+                if(j==0){
+                    dp[i][0]=i;
+                }
+                else if(i==0){
+                    dp[0][j]=j;
                 }
                 else if(word2.charAt(i-1)== word1.charAt(j-1)){
                     dp[i][j]= dp[i-1][j-1];
